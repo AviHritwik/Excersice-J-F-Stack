@@ -1,0 +1,8 @@
+*.metadata
+*bin
+*.classpath
+*.project
+*.checkstyle
+*.set*
+*.settings*
+*target*

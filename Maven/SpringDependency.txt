@@ -1,0 +1,51 @@
+<properties>
+    <org.springframework.version>5.2.8.RELEASE</org.springframework.version>
+</properties>
+
+<!-- spring-context – defines the actual Spring Injection Container and has a small number of dependencies: spring-core, spring-expression, spring-aop, and spring-beans -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>${org.springframework.version}</version>
+    <scope>runtime</scope>
+</dependency>
+
+
+<!--  such as HibernateTemplate and JpaTemplate and also spring-jdbc and spring-tx -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-orm</artifactId>
+    <version>${org.springframework.version}</version>
+</dependency>
+
+
+<!-- The spring-web dependency contains common web specific utilities for both Servlet and Portlet environments, while spring-webmvc enables the MVC support for Servlet environments. -->
+<!-- Since spring-webmvc has spring-web as a dependency, explicitly defining spring-web is not required when using spring-webmvc.-->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-web</artifactId>
+    <version>${org.springframework.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>${org.springframework.version}</version>
+</dependency>
+
+
+
+
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webflux</artifactId>
+    <version>${org.springframework.version}</version>
+</dependency>
+
+
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-test</artifactId>
+    <version>${spring.version}</version>
+    <scope>test</scope>
+</dependency>
+
