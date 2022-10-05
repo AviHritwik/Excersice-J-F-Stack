@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" >
+
+
+<beans>
+	<!-- Simple Configuration for beans  -->
+	<bean id="triangle" class="hritwik.avi.shapeImpl.Triangle" >
+		<!-- Using getter setter, setter and getter should be always set<var name>() & get<var_name>() -->
+		<property name="type" value="Euilateral" />
+		<property name="angle" value="60" />
+	</bean>
+	<bean id="circle" class="hritwik.avi.shapeImpl.Circle" />
+	
+	
+
+	<!-- Constructor Injection -->
+	<!-- uses the constructor -->
+	<bean id="circleWithRadius" class="hritwik.avi.shapeImpl.Circle">
+		<constructor-arg type="double" value="20.0" />
+	</bean>
+	
+	<bean id="circleWithRadiusAndColor" class="hritwik.avi.shapeImpl.Circle">
+		<constructor-arg value="20.0" />
+		<constructor-arg value="Red" />
+	</bean>
+	
+	<!-- Used when multiple constructor with same no of argument is there and this configuration helps identify based on the variable type -->
+	<bean id="circleWithRadiusAndColorUsingType" class="hritwik.avi.shapeImpl.Circle">
+		<constructor-arg type="double" value="20.0" />
+		<constructor-arg type="java.lang.String" value="Red" />
+	</bean>
+	
+	<!-- It identifies based on order and no of argument -->
+	<!-- this given configuration will look for the constructor with two argument and assign the value with index 0 to first one and 1 to 2nd one. -->
+	<bean id="circleWithRadiusAndColorUsingIndex" class="hritwik.avi.shapeImpl.Circle">
+		<constructor-arg index="0" value="20.0" />
+		<constructor-arg index="1" value="Red" />
+	</bean>
+
+	
+	
+	<!-- Dependency injection using spring factory -->
+	<!-- We will be passing aqn object to another object as dependency -->
+	
+	<bean id="rectangle" class="hritwik.avi.shapeImpl.Rectangle" >
+		<constructor-arg index="0" value="20" />
+		<constructor-arg index="1" value="10" />
+	</bean>
+	
+	<bean id="triangleForHut" class="hritwik.avi.shapeImpl.Triangle" >
+		<property name="type" value="Equilateral" />
+	</bean>
+	
+	
+	<!-- passing dependecy using Constructor injection -->
+	<bean id="hutWithConstructor" class="hritwik.avi.shapeImpl.Hut">
+		<constructor-arg type="hritwik.avi.shapeImpl.Rectangle" ref="rectangle"/>
+		<constructor-arg type="hritwik.avi.shapeImpl.Triangle" ref="triangleForHut" />
+	</bean> 
+	
+	<!-- passing dependecy using Constructor injection -->
+	<bean id="hutWithSetter" class="hritwik.avi.shapeImpl.Hut">
+		<property  name="rectangle" ref="rectangle"/>
+		<property name="triangle" ref="triangleForHut" />
+	</bean> 
+	
+	<!-- Inner bean concept -->
+	<!-- 
+</beans>
